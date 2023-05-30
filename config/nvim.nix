@@ -226,39 +226,10 @@ in {
 
       # Colorschemes
       {
-        plugin = gruvbox-nvim;
-	      type = "lua";
-	      config = ''
-	        -- vim.o.background = 'dark'
-
-	        require("gruvbox").setup({
-	          contrast = "hard"
-	        })
-
-	        vim.cmd [[
-	          " colorscheme gruvbox
-	          " highlight clear SignColumn
-	        ]]
-	      '';
-      }
-      {
-        plugin = (plugin "pgdouyon/vim-yin-yang");
-	      type = "lua";
-	      config = ''
-	        vim.cmd [[
-	          " colorscheme yang
-	        ]]
-	      '';
-      }
-      {
         plugin = zenbones-nvim;
 	      type = "lua";
 	      config = ''
 	        vim.o.background = 'light'
-
-          vim.g.tokyobones_lightness = 'dim'
-          vim.g.zenwritten_lightness = 'dim'
-          vim.g.zenbones_lightness = 'dim'
           vim.g.seoulbones_lightness = 'dim'
 
 	        vim.cmd [[

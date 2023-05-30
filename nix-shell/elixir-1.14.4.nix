@@ -14,7 +14,7 @@ let
 in
 
 mkShell {
-  buildInputs = [ elixir nodejs direnv cmake imagemagick git gh ]
+  buildInputs = [ elixir nodejs direnv gcc cmake gnumake imagemagick git gh ]
     ++ optional stdenv.isLinux libnotify # For ExUnit Notifier on Linux.
     ++ optional stdenv.isLinux inotify-tools # For file_system on Linux.
     ++ optional stdenv.isDarwin terminal-notifier # For ExUnit Notifier on macOS.

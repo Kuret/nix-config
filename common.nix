@@ -1,4 +1,4 @@
-{ pkgs, lib, newmpkg, ... }:
+{ pkgs, lib, ... }:
 
 {
   # Automatic cleanup
@@ -20,7 +20,6 @@
   fonts.fonts = with pkgs; [
     (callPackage ./my-pkgs/ttf-ligaconsolas-nerd-font.nix {})
   ];
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   programs.fish.enable = true;

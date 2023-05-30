@@ -12,12 +12,19 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # Linux kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+
+  # Graphics
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # GPU
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages = with pkgs; [
+    rocm-opencl-icd
+    rocm-opencl-runtime
+
     amdvlk
   ];
 
@@ -27,7 +34,6 @@
 
   # Bluetooth
   hardware.bluetooth.enable = true;
-  #services.blueman.enable = true;
 
   # Thunderbolt
   services.hardware.bolt.enable = true;
@@ -45,15 +51,8 @@
     serviceConfig.Type = "oneshot";
   };
 
-  # Battery
-  services.tlp = {
-    enable = false;
-    settings = {
-      CPU_BOOST_ON_BAT = 0;
-      CPU_SCALING_GOVERNOR_ON_BATTERY = "powersave";
-      START_CHARGE_THRESH_BAT0 = 80;
-      STOP_CHARGE_THRESH_BAT0 = 85;
-      RUNTIME_PM_ON_BAT = "auto";
-    };
-  };
+  # Enable HIP for GPU Acceleration
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
+  ];
 }

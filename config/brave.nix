@@ -9,6 +9,7 @@
     { id = "ldgfbffkinooeloadekpmfoklnobpien"; } # Raindrop
     { id = "ckejmhbmlajgoklhgbapkiccekfoccmk"; } # Mobile Simulator
     { id = "cimiefiiaegbelhefglklhhakcgmhkai"; } # Plasma Integration
+    { id = "gphhapmejobijbbhgpjhcjognlahblep"; } # Gnome Integration
   ];
 }
 

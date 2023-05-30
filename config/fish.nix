@@ -93,22 +93,22 @@
     plugins = [
       {
         name = "fish-command-timer";
-	src = pkgs.fetchFromGitHub {
-	  owner = "jichu4n";
-	  repo = "fish-command-timer";
-	  rev = "ba68bd0a1d06ea99aadefe5a4f32ff512783d432";
-	  sha256 = "Ip677gZlcO8L/xukD7Qoa+C+EcI2kGd+BSOi2CDOzM4=";
-	};
+        src = pkgs.fetchFromGitHub {
+          owner = "jichu4n";
+          repo = "fish-command-timer";
+          rev = "ba68bd0a1d06ea99aadefe5a4f32ff512783d432";
+          sha256 = "Ip677gZlcO8L/xukD7Qoa+C+EcI2kGd+BSOi2CDOzM4=";
+        };
       }
 
       {
         name = "lucid";
-	src = pkgs.fetchFromGitHub {
-	  owner = "mattgreen";
-	  repo = "lucid.fish";
-	  rev = "b6aca138ce47289f2083bcb63c062d47dcaf4368";
-	  sha256 = "6HepVxMm9LdJoifczvQS98kAc1+RTKJh+OHRf28nhZM=";
-	};
+        src = pkgs.fetchFromGitHub {
+          owner = "mattgreen";
+          repo = "lucid.fish";
+          rev = "b6aca138ce47289f2083bcb63c062d47dcaf4368";
+          sha256 = "6HepVxMm9LdJoifczvQS98kAc1+RTKJh+OHRf28nhZM=";
+        };
       }
     ];
   };
