@@ -43,5 +43,6 @@
 
   # Nix config and state
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [ "nodejs-16.20.0" ]; # Needed for Neovim CoPilot for now
   system.stateVersion = "22.11";
 }
