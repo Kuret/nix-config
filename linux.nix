@@ -28,6 +28,7 @@ in {
 
     brave         # Browser
     cider         # Apple Music
+    jellyfin-media-player # Media Player
     wl-clipboard  # Utilities
     libnotify     # Notifier
 
@@ -62,8 +63,11 @@ in {
 
   users.users.rick = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "input" "video" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "input" "video" "libvirtd" "adbusers" ];
   };
+
+  # Android
+  programs.adb.enable = true;
 
   # GUI
   programs.dconf.enable = true;

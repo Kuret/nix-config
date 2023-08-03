@@ -11,7 +11,6 @@
     clock24 = true;
     historyLimit = 9999;
     keyMode = "vi";
-    shell = "${pkgs.fish}/bin/fish";
     sensibleOnTop = false;
     extraConfig = ''
       set -g default-terminal "tmux-256color"

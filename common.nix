@@ -12,9 +12,11 @@
   environment.systemPackages = with pkgs; [
     fish direnv any-nix-shell                 # Fish
     tmux wget ripgrep heroku universal-ctags  # CLI Tools
+    github-copilot-cli                        # CLI Tools
     git gh nix-prefetch-github                # Git
     kitty alacritty                           # Terminal
     neovim                                    # Editor
+    intel-one-mono                            # Fonts
   ];
 
   fonts.fonts = with pkgs; [
@@ -43,6 +45,6 @@
 
   # Nix config and state
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [ "nodejs-16.20.0" ]; # Needed for Neovim CoPilot for now
+  nixpkgs.config.permittedInsecurePackages = [ "nodejs-16.20.1" "ruby-2.7.8" ]; # Needed for Neovim CoPilot for now
   system.stateVersion = "22.11";
 }

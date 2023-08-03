@@ -12,6 +12,7 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # Linux kernel
+  boot.kernelParams = [ "mem_sleep_default=deep" ];
   boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   # Graphics
@@ -38,11 +39,17 @@
   # Thunderbolt
   services.hardware.bolt.enable = true;
 
+  # Sleep
+  systemd.targets.hibernate.enable = false;
+  systemd.targets.hybrid-sleep.enable = false;
+
   # Disable wakeup events from usb
   systemd.services.wakeup-gpd = {
     description = "Fix GPD Win Max 2 wakeups";
-    wantedBy = [ "multi-user.target" "post-resume.target" ];
-    after = [ "multi-user.target" "post-resume.target" ];
+    # wantedBy = [ "multi-user.target" "post-resume.target" ];
+    # after = [ "multi-user.target" "post-resume.target" ];
+    wantedBy = [ "multi-user.target" ];
+    after = [ "multi-user.target" ];
     script = ''
       if ${pkgs.gnugrep}/bin/grep -q '\bXHC1\b.*\benabled\b' /proc/acpi/wakeup; then
         echo XHC1 > /proc/acpi/wakeup
