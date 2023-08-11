@@ -64,7 +64,7 @@
 
       # Elixir
       iem = "iex -S mix";
-      mixg = "mix gettext.setup";
+      mixg = "mix gettext.run";
       mps = "iex -S mix phx.server";
       mup = "npm install && npm run-script build && mix do deps.get, ecto.migrate";
       mups = "npm install && npm run-script build && mix do deps.get, ecto.migrate && iex -S mix phx.server";
