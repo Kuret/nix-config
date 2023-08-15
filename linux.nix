@@ -3,18 +3,16 @@ let
   nix-gaming = import (builtins.fetchTarball "https://github.com/fufexan/nix-gaming/archive/master.tar.gz");
 in {
   imports = [
-    (import "${builtins.fetchTarball https://github.com/nix-community/home-manager/archive/master.tar.gz}/nixos")
     "${nix-gaming}/modules/pipewireLowLatency.nix"
     ./common.nix
   ];
 
-  # Use config from dotfiles
+  # Use config from ~/nix-config
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
     "nixos-config=/home/rick/dotfiles/hosts/${config.networking.hostName}/configuration.nix"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
-
 
   # Increase max file watches
   boot.kernel.sysctl = {
@@ -28,12 +26,8 @@ in {
 
     brave         # Browser
     cider         # Apple Music
-    jellyfin-media-player # Media Player
     wl-clipboard  # Utilities
     libnotify     # Notifier
-
-    # Plasma Utils
-    # latte-dock
 
     # Gnome Utils
     dconf2nix
@@ -47,10 +41,6 @@ in {
     phinger-cursors
     noto-fonts
   ];
-
-  # Home Manager
-  home-manager.useGlobalPkgs = true;
-  home-manager.users.rick = import ./home/home-linux.nix;
 
   # Enable doas
   security.sudo.enable = false;
@@ -73,7 +63,6 @@ in {
   programs.dconf.enable = true;
   services.xserver = {
     enable = true;
-
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
   };
@@ -86,7 +75,7 @@ in {
   programs._1password-gui.polkitPolicyOwners = [ "rick" ];
 
   # Enable sound with pipewire.
-  # sound.enable = true;
+  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {

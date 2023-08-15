@@ -46,8 +46,6 @@
   # Disable wakeup events from usb
   systemd.services.wakeup-gpd = {
     description = "Fix GPD Win Max 2 wakeups";
-    # wantedBy = [ "multi-user.target" "post-resume.target" ];
-    # after = [ "multi-user.target" "post-resume.target" ];
     wantedBy = [ "multi-user.target" ];
     after = [ "multi-user.target" ];
     script = ''
