@@ -8,7 +8,7 @@
   # Use config from ~/nix-config
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    "darwin-config=/Users/rick/dotfiles/hosts/${config.networking.hostName}/darwin-configuration.nix"
+    "darwin-config=/Users/rick/nix-config/hosts/${config.networking.hostName}/darwin-configuration.nix"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 

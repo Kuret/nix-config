@@ -10,7 +10,7 @@ in {
   # Use config from ~/nix-config
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    "nixos-config=/home/rick/dotfiles/hosts/${config.networking.hostName}/configuration.nix"
+    "nixos-config=/home/rick/nix-config/hosts/${config.networking.hostName}/configuration.nix"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
